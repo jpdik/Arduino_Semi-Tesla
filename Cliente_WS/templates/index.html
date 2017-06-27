@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+	<title>Controle</title>
+</head>
+<body>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+	<span id="titulo">Controle do Carro</span>
+	<div class="container">
+	  <div class="monitor">
+	  	<div class="screen">
+	      <div class="content">
+	      	Teste
+	      </div>
+	      <div class="command">
+	      </div>
+	    </div>
+	  </div>
+	  <div class="monitor-stand">
+	  </div>
+	</div>
+
+	<div id="botoes">
+		<div class="wrapper">
+		  <div class=""></div>
+		  <div class=""><button class="button" id="up">↑</button></div>
+		  <div class=""></div>
+		  <div class=""><button class="button" id="lft">←</button></div>
+		  <div class=""><button class="button" id="dn">↓</button></div>
+		  <div class=""><button class="button" id="rgt">→</button></div>
+		</div>
+
+	</div>
+
+	<div id="info"><button class="button" id="plt">Piloto Automatico</button></div>
+
+	<form id="campos">
+	  <div class="input-group">
+	    <span class="input-group-addon">IP</span>
+	    <input id="ip" type="text" class="form-control" name="ip" placeholder="Ex: 127.0.0.1">
+	  </div>
+	  <div class="input-group">
+	    <span class="input-group-addon">Porta</span>
+	    <input id="porta" type="text" class="form-control" name="porta" placeholder="Ex: 8888">
+	  </div>
+	  <div class="btn-group">
+		  <button type="button" id="conectar" class="btn btn-primary">Conectar</button>
+		  <button type="button" id="desconectar" class="btn btn-primary">Desconectar</button>
+	  </div>
+	</form>
+
+	<script src="https://rawgit.com/jpdik/DirShared/master/templates/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"> </script>
+</body>
+</html>

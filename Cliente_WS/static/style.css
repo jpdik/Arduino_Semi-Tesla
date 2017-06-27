@@ -1,0 +1,377 @@
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #d7da30;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #40584a;
+}
+
+.button:hover {background-color: #aeb129}
+
+.button:active:hover {
+  background-color: #aeb129;
+  box-shadow: 0 5px #40584a;
+  transform: translateY(4px);
+}
+
+.wrapper {
+  margin-top: -8%;
+  margin-bottom: 1.5%; 
+  display: grid; 
+  grid-template-columns: 70px 60px 70px; 
+  grid-gap: 20px; 
+  z-index: 3;
+} 
+
+#botoes{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -9%;
+  margin-bottom: 10%
+}
+
+#info button{
+  background-color: red;
+  display: none;
+}
+
+#campos{
+  margin: 3% 0% 2% 0%;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Asap);
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+.input-group{
+  margin: 0 40% 0 40%;
+}
+
+.input-group-addon{
+  background-color: #d7da30;
+  color: #fff;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.btn{
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #d7da30;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #40584a;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+#titulo{
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.btn:hover {background-color: #aeb129}
+
+.btn:focus {background-color: #aeb129}
+
+.btn:active:hover {
+  background-color: #aeb129;
+  box-shadow: 0 5px #40584a;
+  transform: translateY(4px);
+}
+
+.btn:active {
+  background-color: #aeb129;
+  box-shadow: 0 5px #40584a;
+  transform: translateY(4px);
+}
+
+.btn-group{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 2%
+}
+
+span {
+  color: #fff;
+  text-align: center;
+  display: block;
+  font-size: 27px;
+  font-family: 'Asap', sans-serif;
+  padding: 10px;
+}
+
+body {
+  padding: 0px 10px 10px;
+  background: #16A085;
+  -webkit-transition: background-color 0.4s ease;
+  -moz-transition: background-color 0.4s ease;
+  -o-transition: background-color 0.4s ease;
+  transition: background-color 0.4s ease;
+}
+
+/* The container that defines the dimenions of the monitor - used in media queries */
+.container {
+  width: 900px;
+  height: 525px;
+  margin: 0 auto;
+}
+/* Black monitor outline */
+.monitor {
+  padding: 4%;
+  position:relative;
+  background: #333;
+  border-radius: 10px;
+  height: 50%;
+  margin: 0% 10% 0% 10%;
+}
+
+/* Camera on top of the monitor */
+.monitor:before {
+  content: "";
+  display: block;
+  background: #E6E9ED;
+  position: absolute;
+  padding: 0.8%;
+  margin-right: -0.4%;
+  border-radius: 50%;
+  right: 50%;
+  top: 1.8%;
+}
+
+/* Power button on the bottom of monitor */
+.monitor:after {
+  content: "";
+  display: block;
+  background: #AAB2BD;
+  position: absolute;
+  padding: 1%;
+  border-radius: 10%;
+  right: 4%;
+  bottom: 1.5%;
+}
+
+/* The container of the content */
+.screen {
+  height: 100%;
+  /*overflow: hidden; /* so that scroll bar is hidden */
+}
+
+/* Scrollable section inside the screen */
+.content {
+  height: 100%;
+  width: calc(100% + 17px); /* 17px for scroll bar */
+  overflow-y: scroll;
+  position: relative;
+}
+
+.screen:after {
+  content:'';
+  display: block;
+  height: 88%;
+  background: #333;
+  position: absolute;
+  right: 0;
+  top: 6%;
+  width: 4%;
+}
+
+/* Console on the screen */
+.content {
+  display: block;
+  width: 100%;
+  height: 88%;
+  color: white;
+  background-color: #171717;
+  padding: 1%;
+}
+
+/* Command on the screen */
+.command {
+  border-width: 0.1em;
+  border-style: ridge;
+  border-color: #00d200;
+  display: block;
+  width: 100%;
+  height: 20px;
+  color: #00d200;
+  background-color: #000;
+  padding-left: 1%;
+}
+
+.content::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+.content::-webkit-scrollbar
+{
+  width: 6px;
+  background-color: #F5F5F5;
+}
+
+.content::-webkit-scrollbar-thumb
+{
+  background-color: #000000;
+}
+
+/* Stand */
+.monitor-stand {
+  position: relative;
+  margin: 0 auto;
+  height: 10%;
+  width: 20%;
+  background: #F3F3F4;
+}
+
+/* Shadow on stand - have to set manually since border-top doesn't support % :( */
+.monitor-stand {
+  border-top: 24px solid #D1D3D6;
+}
+
+/* Bottom of stand */
+.monitor-stand:after {
+  content: '';
+  position: absolute;
+  background: #E7E8E9;
+  height: 20%;
+  width: 200%;
+  margin-left: -50%;
+  margin-top: 29%;
+  border-radius: 5px;
+}
+
+/* Shadow */
+.monitor-stand:before {
+  content: '';
+  position: absolute;
+  width: 250%;
+  height: 50%;
+  margin-left: -75%;
+  margin-top: 60%;
+  opacity: 0.3;
+  background: #000;
+  border-radius: 50%;
+}
+
+/* 1200px and less ------------------------------ */
+@media (max-width: 1200px) {
+  body {
+    background: #5D9CEC;
+  }
+
+  .container {
+    width: 800px;
+    height: 466px;
+  }
+
+  .container:hover {
+    width: 820px;
+    height: 477px;
+  }
+
+  .monitor-stand {
+    border-top: 20px solid #D1D3D6;
+  }
+}
+
+/* 992px and less ------------------------------ */
+@media (max-width: 992px) {
+  body {
+    background: #2ecc71;
+  }
+
+  .container {
+    width: 600px;
+    height: 350px;
+  }
+
+  .container:hover {
+    width: 615px;
+    height: 358px;
+  }
+
+  .command {
+    font-size: 14px;
+  }
+
+  .monitor-stand {
+    border-top: 15px solid #D1D3D6;
+  }
+}
+
+/* 768px and less ------------------------------ */
+@media (max-width: 768px) {
+  body {
+    background: #AC92EC ;
+  }
+
+  .container,
+  .container:hover {
+    width: 450px;
+    height: 262px;
+  }
+
+  .command {
+    font-size: 12px;
+  }
+
+  .monitor-stand {
+    border-top: 12px solid #D1D3D6;
+  }
+}
+
+/* 480px and less ------------------------------ */
+@media (max-width: 480px) {
+  body {
+    background: #FFCE54 ;
+  }
+
+  .container,
+  .container:hover {
+    width: 300px;
+    height: 175px;
+  }
+
+  .command {
+    font-size: 5px;
+  }
+
+  .monitor-stand {
+    border-top: 8px solid #D1D3D6;
+  }
+}
+
+/* 320px and less ------------------------------ */
+@media (max-width: 320px) {
+  body {
+    background: #ED5565;
+  }
+
+  span {
+    display: none;
+  }
+}
