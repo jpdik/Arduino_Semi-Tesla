@@ -1,6 +1,7 @@
 #coding: utf-8
 
 import serial
+import bluetooth
 import socket
 import udpc
 from hashlib import md5
@@ -18,29 +19,33 @@ def restart_program():
     python = sys.executable
     os.execl(python, python, * sys.argv)
 
-#try:
-bluetooth=serial.Serial(C.PORT_DEV, 9600)# Inicia o objeto de Comunicação Serial e define a velocidade de comunicação com arduino
-bluetooth.flushInput() # Comando para melhorar um pouco o desempenho do bluetooth
-#except serial.serialutil.SerialException:
-	#print 'Não foi possível estabelecer conexão ou encontrar o dispositivo definido em: '+C.PORT_DEV
-	#exit()
+sock=bluetooth.BluetoothSocket( bluetooth.RFCOMM )
+sock.connect((C.BD_ADDR, C.BD_PORTA))
+print 'Connected'
+sock.settimeout(1.0)
 
 s = udpc.socketCUDP(socket.AF_INET)
 
 s.bind((C.IP, C.PORTA))
 
+sd = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
 while True:
-	dados, dados_cli = s.recv(C.CARACTERES_PACOTE)
+	try:
+		dados, dados_cli = s.recv(C.CARACTERES_PACOTE)
 
-	print dados
+		print dados
 
-	bluetooth.write(str.encode(dados)) #Os dados precisam do encode 'b'
-	#input_data=bluetooth.readline() #Le dados enviados pelo arduino pelo serial
-	#print(input_data.decode()) # Os dados recebidos precisam de um decode
-	#time.sleep(0.1) #Pausa mínima entre envios do bluetooth
+		if not dados:		
+			restart_program()
 
-	if not dados:		
-		restart_program()
+		sock.send(dados)
+
+		frente = sock.recv(8)
+
+		sd.sendto(frente, (C.IP, C.PORTA_D))
+	except bluetooth.btcommon.BluetoothError:
+		continue
 
 	
 bluetooth.close() #Finaliza a conexão serial com bluetooh

@@ -1,7 +1,9 @@
 #coding: utf-8
 
-IP = '127.0.0.1'
+IP = '10.3.1.36'
 PORTA = 8888
+PORTA_D = PORTA+1
 CARACTERES_PACOTE = 2048
-PORT_DEV="/dev/rfcomm9" # ls -lart /dev #para descobrir o tty para comunicação serial com o arduino módulo bluetooth5
 NOME = 'recebido/redes3.jpg'
+BD_ADDR = "20:16:10:20:71:13" #itade address
+BD_PORTA = 1

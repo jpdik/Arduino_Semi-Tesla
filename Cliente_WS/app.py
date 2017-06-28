@@ -5,12 +5,21 @@ import sys
 import requests
 import udpc
 import socket
+import threading
 
 from flask import Flask, Response, render_template, request
 
 s = udpc.socketCUDP(socket.AF_INET)
 
+sd = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sd.settimeout(0.08)
+
 piloto_automatico = False
+
+ipudp = ""
+portaudp = 0
+
+info = "0"
 
 def restart_program():
     """Restarts the current program.
@@ -40,7 +49,9 @@ def api():
 
 @app.route('/conectar/<ip>/<porta>', methods=['POST'])
 def conectar(ip, porta):
+	global ipudp, portaudp
 	s.connect((ip, int(porta)))
+	sd.bind((ip, int(porta)+1))
 	return json.dumps({'resposta': 'Conectado'})
 
 @app.route('/desconectar', methods=['POST'])
@@ -50,6 +61,8 @@ def desconectar():
 	s.finalize()
 	s.close()
 	s = udpc.socketCUDP(socket.AF_INET)
+	sd.close()
+	sd = udpc.socketCUDP(socket.AF_INET)
 	return json.dumps({'resposta': 'Desconectado'})
 
 @app.route('/comando/<tipo>', methods=['POST'])
@@ -71,7 +84,13 @@ def comando(tipo):
 
 @app.route('/dados', methods=['POST'])
 def dados():
-	return json.dumps({'dados': 'Proximidade Frente: 5.00 cm<br>Proximidade atrás: 5.00 cm<br>'})
+	global info
+	try:
+		dados, dados_cli = sd.recvfrom(10)
+		info = dados
+	except socket.timeout:
+		dados = info
+	return json.dumps({'dados': 'Proximidade Frente: '+str(dados)+' cm<br>Proximidade atrás: 5.00 cm<br>'})
 
 @app.route('/piloto', methods=['POST'])
 def piloto():
@@ -88,4 +107,4 @@ def piloto():
 
 
 if __name__ == "__main__":
-  app.run(host= '192.168.1.102', debug=True)
+  app.run(debug=True)
