@@ -22,18 +22,18 @@
 }
 
 .wrapper {
-  margin-top: -8%;
-  margin-bottom: 1.5%; 
   display: grid; 
   grid-template-columns: 70px 60px 70px; 
   grid-gap: 20px; 
   z-index: 3;
+  margin: 0 auto;
 } 
 
 #botoes{
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 #info{
@@ -137,6 +137,7 @@ body {
   width: 900px;
   height: 525px;
   margin: 0 auto;
+  margin-bottom: -150px;
 }
 /* Black monitor outline */
 .monitor {
@@ -221,6 +222,10 @@ body {
   padding-left: 1%;
 }
 
+.input-group-addon {
+    min-width:70px;// if you want width please write here //
+}
+
 .content::-webkit-scrollbar-track
 {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -283,14 +288,39 @@ body {
     background: #5D9CEC;
   }
 
+  .wrapper {
+    display: grid; 
+    grid-template-columns: 60px 50px 70px;
+    grid-gap: 3px; 
+    z-index: 3;
+    margin: 0 auto;
+    margin-top: 30px;
+  } 
+
+  .button {
+    padding: 5px 20px;
+    font-size: 20px;
+    border-radius:11px;
+    box-shadow: 0 5px #40584a;
+  }
+
+  .btn{
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px #40584a;
+    text-shadow: 1px 1px 4px #000000;
+  }
+
+  .input-group-addon {
+    font-size: 10px;
+    min-width:50px;// if you want width please write here //
+  }
+
   .container {
     width: 800px;
     height: 466px;
-  }
-
-  .container:hover {
-    width: 820px;
-    height: 477px;
   }
 
   .monitor-stand {
@@ -304,14 +334,39 @@ body {
     background: #2ecc71;
   }
 
+  .wrapper {
+    display: grid; 
+    grid-template-columns: 40px 32px 50px;
+    grid-gap: 2px; 
+    z-index: 3;
+    margin: 0 auto;
+    margin-top: 30px;
+  } 
+
+  .button {
+    padding: 5px 12px;
+    font-size: 15px;
+    border-radius:11px;
+    box-shadow: 0 5px #40584a;
+  }
+
+  .btn{
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px #40584a;
+    text-shadow: 1px 1px 4px #000000;
+  }
+
+  .input-group-addon {
+    font-size: 10px;
+    min-width:50px;// if you want width please write here //
+  }
+
   .container {
     width: 600px;
     height: 350px;
-  }
-
-  .container:hover {
-    width: 615px;
-    height: 358px;
   }
 
   .command {
@@ -329,8 +384,41 @@ body {
     background: #AC92EC ;
   }
 
-  .container,
-  .container:hover {
+  .wrapper {
+    display: grid; 
+    grid-template-columns: 40px 32px 50px;
+    grid-gap: 2px; 
+    z-index: 3;
+    margin: 0 auto;
+    margin-top: 70px;
+  } 
+
+  .button {
+    padding: 5px 12px;
+    font-size: 15px;
+    border-radius:11px;
+    box-shadow: 0 5px #40584a;
+  }
+
+  .btn{
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px #40584a;
+    text-shadow: 1px 1px 4px #000000;
+  }
+
+  .input-group-addon {
+    font-size: 10px;
+    min-width:50px;// if you want width please write here //
+  }
+
+  .form-control{
+    font-size: 11px;
+  }
+
+  .container{
     width: 450px;
     height: 262px;
   }
@@ -350,14 +438,53 @@ body {
     background: #FFCE54 ;
   }
 
-  .container,
-  .container:hover {
+  .wrapper {
+    display: grid; 
+    grid-template-columns: 30px 24px 30px;
+    grid-gap: 3px; 
+    z-index: 3;
+    margin: 0 auto;
+    margin-top: 100px;
+  } 
+
+  .button {
+    padding: 5px 10px;
+    font-size: 10px;
+    color: black;
+    border-radius:11px;
+    box-shadow: 0 5px #40584a;
+  }
+
+  .btn{
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px #40584a;
+    text-shadow: 1px 1px 4px #000000;
+  }
+
+  .input-group-addon {
+    font-size: 10px;
+    min-width:50px;// if you want width please write here //
+  }
+
+  .input-group{
+    margin: 0 30% 0 30%;
+  }
+
+  .container {
     width: 300px;
     height: 175px;
   }
 
+  .form-control{
+    font-size: 11px;
+  }
+
   .command {
-    font-size: 5px;
+    font-size: 10px;
+    height: 13px;
   }
 
   .monitor-stand {
@@ -369,6 +496,22 @@ body {
 @media (max-width: 320px) {
   body {
     background: #ED5565;
+  }
+
+  .wrapper {
+    display: none;
+  } 
+
+  .button {
+    display: none;
+  }
+
+  .btn{
+    display: none;
+  }
+
+  .input-group-addon {
+    display: none;
   }
 
   span {
