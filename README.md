@@ -2,7 +2,7 @@
 Desenvolvimento de um veículo semi-autônomo em Arduino que realiza comunicação Bluetooh com o servidor, e realiza uma ponte de conexão(através de um servidor)que possui um protocolo UDP que implementa confiabilidade e que se comunica com um cliente WebService em Flask:
 
 <p align="center">
-  <img src="https://mail.google.com/mail/u/0/?ui=2&ik=1014e4bdc0&view=fimg&th=15c4fe112374eb69&attid=0.1&disp=emb&realattid=ii_15c4fdd151f860ae&attbid=ANGjdJ9jQK79KNneE8n5TTftBs0_IYTEFEwYfmNNDYQtBAUVfVsrrev-dlbjxEmET-HTyT4_eXq63Dh7_8zy4CEjV3jzHq1775chnZlTb0z2Xr18zOnD2vrD0MP2fvA&sz=w936-h666&ats=1498620446855&rm=15c4fe112374eb69&zw&atsh=1"/>
+  <img src="https://github.com/jpdik/Arduino_Semi-Tesla/blob/master/img/Example_Struct.jpg?raw=true"/>
 </p>
 
 O protótipo em Arduíno foi construído usando os seguintes materiais:
