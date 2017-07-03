@@ -1,6 +1,6 @@
 #coding: utf-8
 
-IP = '10.3.1.36'
+IP = '127.0.0.1'
 PORTA = 8888
 PORTA_D = PORTA+1
 CARACTERES_PACOTE = 2048

@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	// esconde o botão de piloto automático que só será mostrado ao realizar o combo
-	$('#plt').hide();
 
 	// Constantes de definição das teclas de movimentação	
 	var KEY_DOWN = 40, 
@@ -97,9 +96,14 @@ $(document).ready(function(){
 
 	//Analise de tecla solta dentro do body(corpo da página) para parar o veículo.
 	document.querySelector('body').addEventListener('keyup', function(event) {
+
+		var tecla = event.keyCode;
+
 		if(automatico == false){
-	 		comando('parar');
-			$('.command').html("");
+			if(tecla == KEY_UP || tecla == KEY_DOWN || tecla == KEY_LEFT || tecla == KEY_RIGHT){
+		 		comando('parar');
+				$('.command').html("");
+			}
  		}
  		pressionada = false
 	});
@@ -169,15 +173,13 @@ $(document).ready(function(){
 				    var resp = JSON.parse(e);
 				    if(resp['resposta'] == "Piloto Automatico"){				    
 				 		$('.command').html(resp['resposta'])
-				 		automatico = true
+				 		automatico = true;
 				 		$('#info button').css({backgroundColor: "green" });
-				 		$('#info button').html("Piloto Automático");
 					}
 					else{
 						$('.command').html(resp['resposta'])
-				 		automatico = false
+				 		automatico = false;
 				 		$('#info button').css({backgroundColor: "red" });
-				 		$('#info button').html("Manual");
 					}
 
 
@@ -254,6 +256,6 @@ $(document).ready(function(){
 			contentType: false,
 			processData: false
 		});
-	}, 5000);
+	}, 200);
 	}
 });

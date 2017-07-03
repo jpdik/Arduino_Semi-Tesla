@@ -40,12 +40,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -9%;
-  margin-bottom: 10%
 }
+
 
 #info button{
   background-color: red;
+  margin-top: 200px;
   display: none;
 }
 
@@ -334,6 +334,10 @@ body {
     background: #2ecc71;
   }
 
+  #info button{
+    margin-top: 100px;
+  }
+
   .wrapper {
     display: grid; 
     grid-template-columns: 40px 32px 50px;
@@ -382,6 +386,10 @@ body {
 @media (max-width: 768px) {
   body {
     background: #AC92EC ;
+  }
+
+  #info button{
+    margin-top: 70px;
   }
 
   .wrapper {
@@ -436,6 +444,11 @@ body {
 @media (max-width: 480px) {
   body {
     background: #FFCE54 ;
+  }
+
+  #info button{
+    margin-top: 50px;
+    color: white
   }
 
   .wrapper {
@@ -496,6 +509,10 @@ body {
 @media (max-width: 320px) {
   body {
     background: #ED5565;
+  }
+
+  #info button{
+    display: none;
   }
 
   .wrapper {

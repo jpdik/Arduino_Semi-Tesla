@@ -21,33 +21,36 @@ def restart_program():
 
 sock=bluetooth.BluetoothSocket( bluetooth.RFCOMM )
 sock.connect((C.BD_ADDR, C.BD_PORTA))
-print 'Connected'
+print 'Bluetooth Connected'
 sock.settimeout(1.0)
 
 s = udpc.socketCUDP(socket.AF_INET)
 
 s.bind((C.IP, C.PORTA))
 
-sd = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+print 'Socket UDPC Connectado'
+
+dados, dados_cli = s.recv(C.CARACTERES_PACOTE)
+
+s.connect(dados_cli)
 
 while True:
 	try:
-		dados, dados_cli = s.recv(C.CARACTERES_PACOTE)
-
-		print dados
 
 		if not dados:		
 			restart_program()
 
 		sock.send(dados)
 
-		frente = sock.recv(8)
+		if(dados == 'd'):
+			frente = sock.recv(9)
 
-		sd.sendto(frente, (C.IP, C.PORTA_D))
+			print frente
+
+			s.send(frente)
+
+		dados, dados_cli = s.recv(C.CARACTERES_PACOTE)
 	except bluetooth.btcommon.BluetoothError:
 		continue
-
-	
-bluetooth.close() #Finaliza a conexão serial com bluetooh
 
 s.close()

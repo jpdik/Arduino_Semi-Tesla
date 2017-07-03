@@ -1,17 +1,16 @@
 #coding: utf-8
 
 import socket
-import bitarray
 import time
 import threading
-
-ba = bitarray.bitarray()
 
 class socketCUDP(object):
 	#Configurações realizadas normalmente como um socket
 	def __init__(self, familiaIP=socket.AF_INET):
 		self.ip = ""
 		self.porta = 8000
+
+		self.old_pkt = ""
 
 		self.familiaIP = familiaIP
 		self.protocolo = socket.SOCK_DGRAM
@@ -45,8 +44,10 @@ class socketCUDP(object):
 
 				dados = dados[2:]
 
-				if head == self.calc_checksum(dados):
+				if head == self.calc_checksum(dados) or head != self.old_pkt:
 					self.sock.sendto('ack', dados_cli)
+
+					self.old_pkt = head
 
 					if dados == 'fin':
 						break
