@@ -41,7 +41,7 @@ def comando(tipo):
     ...
 </pre>
 
-O cliente tem uma ótima interação pela interface, onde ele configura sua comunicação com o servidor.
+O cliente tem uma interação pela interface, onde ele configura sua comunicação com o servidor.
 <p align="center">
   <img src="https://github.com/jpdik/Arduino_Semi-Tesla/blob/master/img/Example_WS.png?raw=true"/>
 </p>
