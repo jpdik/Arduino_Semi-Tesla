@@ -3,11 +3,15 @@ import json
 import os
 import sys
 import requests
-import udpc
 import socket
 import threading
 
 from flask import Flask, Response, render_template, request
+
+sys.path.insert(0, os.getcwd()[:os.getcwd().rfind('/')])
+
+import udpc
+
 
 s = udpc.socketCUDP(socket.AF_INET)
 

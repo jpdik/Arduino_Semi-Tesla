@@ -206,7 +206,7 @@ $(document).ready(function(){
 					    var resp = JSON.parse(e);
 					    $('.content').html(resp['resposta'])
 
-					    obter_dados();
+					    //obter_dados();
 					},
 					error: function (e) {
 						var resp = JSON.parse(e);
