@@ -12,6 +12,9 @@ class Packet:
     TYPE_ACK = 4
     TYPE_FIN = 5
 
+    # Tempo mínimo para espera de um ACK
+    TIME_OUT_ACK = 0.0001
+
     PACKET_STRUCT_LENGHT = 16
     
     def __init__(self, data=""):
@@ -88,7 +91,7 @@ class socketCUDP(object):
 		self.sock.bind((self.ip, self.porta))
 
 		#setar o timeout que vai analisar o tempo de morte do recv
-		self.sock.settimeout(0.0001)
+		self.sock.settimeout(TIME_OUT_ACK)
 
 	def nextSeqNumber(self):
 		self.seqnum += 1
@@ -159,10 +162,15 @@ class socketCUDP(object):
 				if self.packet.confirmACK(dados) is True:
 					self.seqnum = self.packet.seqnum
 					#confirmou
+					# Algum pacote se perdeu e o tempo de espera foi mudado
+					if tryClose > 0 :
+						self.sock.settimeout(TIME_OUT_ACK)
 					break
 			except socket.timeout:
-				if tryClose < 3:
+				if tryClose < 4:
 					tryClose += 1
+					# Aumenta o tempo de espera do ACK
+					self.sock.settimeout(TIME_OUT_ACK * (tryClose + 1))
 					continue
 				else:
 					break
